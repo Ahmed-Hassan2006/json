@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Manager - The Ultimate Guide</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #fdfdfd;
+            --text-color: #333;
+            --code-bg: #f4f4f4;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--accent-color);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        h3 {
+            color: var(--accent-color);
+            margin-top: 25px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .note {
+            background-color: #e8f4f8;
+            border-left: 5px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .shortcut-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .shortcut-table th, .shortcut-table td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        .shortcut-table th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .shortcut-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        kbd {
+            background-color: #eee;
+            border-radius: 3px;
+            border: 1px solid #b4b4b4;
+            box-shadow: 0 1px 1px rgba(0,0,0,.2), 0 2px 0 0 rgba(255,255,255,.7) inset;
+            color: #333;
+            display: inline-block;
+            font-size: 0.85em;
+            font-weight: 700;
+            line-height: 1;
+            padding: 2px 4px;
+            white-space: nowrap;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #eee;
+            font-size: 0.9em;
+        }
+        
+        .sr-only {
+            font-weight: bold;
+            color: #d35400;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>GitHub Manager Guide</h1>
+    <p>From Zero to Hero: A complete manual for everyone.</p>
+</header>
+
+<div class="container">
+
+    <section id="intro">
+        <h2>👋 Welcome!</h2>
+        <p>
+            Hello friend! If you are reading this, you are about to start a journey into the world of GitHub using the <strong>GitHub Manager</strong> tool. 
+            Whether you are a sighted user or using a screen reader like NVDA or JAWS, this guide is written specifically for you.
+        </p>
+        <p>
+            We know GitHub can look scary and complicated. It talks about "Commits," "Repos," and "Branches." 
+            <strong>Don't worry.</strong> This program was built to hide the scary parts and give you a simple, clean window to manage your files and projects.
+        </p>
+    </section>
+
+    <section id="what-is-github">
+        <h2>🤔 What is GitHub anyway?</h2>
+        <p>
+            Imagine you are writing a book or coding a program. You save a file today. Tomorrow, you change it. The next day, you delete a paragraph. 
+            Suddenly, you realize the paragraph you deleted yesterday was actually important!
+        </p>
+        <p>
+            <strong>GitHub</strong> is like a magical time machine for your files. It's a cloud storage (like Google Drive or Dropbox), but with superpowers:
+        </p>
+        <ul>
+            <li>It saves every version of your file (History).</li>
+            <li>It lets you share your work with the world (Open Source).</li>
+            <li>It lets people report problems with your work (Issues).</li>
+            <li>It lets you package your work for download (Releases).</li>
+        </ul>
+        <p>In GitHub, a project folder is called a <strong>Repository</strong> (or "Repo" for short).</p>
+    </section>
+
+    <section id="getting-started-token">
+        <h2>🔑 Step 1: The Key to the Castle (Getting a Token)</h2>
+        <p>
+            Before the program can talk to GitHub, it needs permission. GitHub doesn't use your normal password for apps anymore; it uses something called a <strong>Personal Access Token (PAT)</strong>.
+            Think of this as a special, long password generated just for this app.
+        </p>
+        <div class="note">
+            <strong>Important:</strong> You only need to do this once. Once the program saves the token, you are good to go!
+        </div>
+
+        <h3>How to get your Token (Step-by-Step):</h3>
+        <ol>
+            <li>Go to <a href="https://github.com/settings/tokens" target="_blank">GitHub Tokens Settings</a> (You will need to sign in).</li>
+            <li>Look for a button that says <strong>"Generate new token"</strong> (Choose "Classic" if asked).</li>
+            <li><strong>Note name:</strong> Type "GitHub Manager App" (or anything you like).</li>
+            <li><strong>Expiration:</strong> Choose "No expiration" if you don't want to do this again next month.</li>
+            <li><strong>Select scopes (Permissions):</strong> This is crucial. You will see a list of checkboxes. You must check:
+                <ul>
+                    <li><code>repo</code> (Full control of private repositories)</li>
+                    <li><code>user</code> (Update all user data)</li>
+                    <li><code>delete_repo</code> (If you want to be able to delete projects)</li>
+                </ul>
+            </li>
+            <li>Scroll to the bottom and click <strong>"Generate token"</strong>.</li>
+            <li><strong>COPY IT NOW!</strong> You will see a long string of random characters starting with <code>ghp_</code>. Copy it immediately. GitHub will <em>never</em> show it to you again.</li>
+        </ol>
+
+        <h3>🦮 For Screen Reader Users (NVDA/JAWS):</h3>
+        <p>GitHub's interface can be busy. Here is a quick tip:</p>
+        <ul>
+            <li>Navigate by <strong>Buttons</strong> (Press <code>B</code>) to find "Generate new token".</li>
+            <li>Use <strong>Checkboxes</strong> (Press <code>X</code>) to check the permissions mentioned above.</li>
+            <li>When the token is generated, it usually appears near the top of the content area. Navigate by lines or headings to find the string starting with "ghp_".</li>
+        </ul>
+
+        <h3>Entering the Token:</h3>
+        <p>Open GitHub Manager. If it's your first time, it will ask for the token. Paste it in the box and click Save (or press Enter). The file <code>gh_token.txt</code> will be created to remember you.</p>
+    </section>
+
+    <section id="interface">
+        <h2>🖥️ The Interface & Features</h2>
+        <p>The program is divided into two main areas: The <strong>Dashboard</strong> (Main Window) and the <strong>Repository Tab</strong> (Inside a project).</p>
+
+        <h3>1. The Dashboard (Main Window)</h3>
+        <p>This is your home base. Here you see a list of all your projects (Repositories).</p>
+        <ul>
+            <li><strong>My Repos:</strong> Refreshes the list to show your projects.</li>
+            <li><strong>Advanced Search:</strong> Lets you find other people's code or users on GitHub.</li>
+            <li><strong>Create Repo:</strong> Starts a brand new blank project on GitHub.</li>
+        </ul>
+
+        <h3>2. The Repository Tab (Inside a Project)</h3>
+        <p>When you press <kbd>Enter</kbd> on a repo in the list, a new tab opens. This is where the magic happens.</p>
+        
+        <h4>📂 Files & Folders</h4>
+        <p>You will see a list of files. You can navigate them just like Windows Explorer.</p>
+        <ul>
+            <li><strong>Open File:</strong> Pressing Enter on a file downloads it to a temporary folder and opens it on your computer.</li>
+            <li><strong>Edit Internal:</strong> (Ctrl+Enter) Opens a simple text editor inside the program to make quick changes and save them back to GitHub immediately.</li>
+        </ul>
+
+        <h4>🌿 Branches</h4>
+        <p>
+            You will see a dropdown menu for "Branches". Imagine a Branch as a "Parallel Universe". 
+            The <code>main</code> branch is the real world. You can create a new branch to test crazy ideas without breaking the main code.
+        </p>
+
+        <h4>🐛 Issues (Problems & To-Do)</h4>
+        <p>
+            <strong>What it is:</strong> On GitHub, "Issues" are like a forum or a To-Do list for that specific project.
+            <br><strong>In the App:</strong> You can read discussions, reply to them, close solved problems, or create new ones.
+        </p>
+
+        <h4>📦 Releases (The Finished Product)</h4>
+        <p>
+            <strong>What it is:</strong> When a programmer finishes a version (like v1.0), they "Release" it.
+            <br><strong>In the App:</strong> You can see all versions, read what's new (Release Notes), and download the attached files (Assets) like ZIPs or EXEs.
+        </p>
+
+        <h4>📜 History (Time Machine)</h4>
+        <p>
+            Every time you save a file on GitHub, it creates a "Commit". The History window shows you who changed what and when.
+        </p>
+    </section>
+
+    <section id="shortcuts">
+        <h2>⌨️ Keyboard Shortcuts (The Cheat Sheet)</h2>
+        <p>
+            This program is designed to be fully usable with a keyboard, mimicking Windows Explorer behavior.
+        </p>
+
+        <h3>🌐 General Shortcuts (Work Everywhere)</h3>
+        <table class="shortcut-table">
+            <tr>
+                <th>Shortcut</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td><kbd>Ctrl</kbd> + <kbd>H</kbd></td>
+                <td>Open this Help Guide.</td>
+            </tr>
+            <tr>
+                <td><kbd>Ctrl</kbd> + <kbd>E</kbd></td>
+                <td>Open Token Settings (Login).</td>
+            </tr>
+            <tr>
+                <td><kbd>Ctrl</kbd> + <kbd>F</kbd></td>
+                <td>Open Advanced Search.</td>
+            </tr>
+            <tr>
+                <td><kbd>Ctrl</kbd> + <kbd>T</kbd></td>
+                <td>Open a new Repository Tab by typing a URL.</td>
+            </tr>
+            <tr>
+                <td><kbd>Ctrl</kbd> + <kbd>W</kbd></td>
+                <td>Close the current Tab.</td>
+            </tr>
+            <tr>
+                <td><kbd>Ctrl</kbd> + <kbd>Tab</kbd></td>
+                <td>Switch between Tabs.</td>
+            </tr>
+            <tr>
+                <td><kbd>F5</kbd></td>
+                <td>Refresh Everything.</td>
+            </tr>
+        </table>
+
+        <h3>🏠 Dashboard Shortcuts (Main Tab)</h3>
+        <table class="shortcut-table">
+            <tr>
+                <th>Shortcut</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td><kbd>Ctrl</kbd> + <kbd>N</kbd></td>
+                <td><strong>New Repository:</strong> Create a new project on GitHub.</td>
+            </tr>
+            <tr>
+                <td><kbd>Ctrl</kbd> + <kbd>R</kbd></td>
+                <td><strong>Reload:</strong> Refresh your list of repositories.</td>
+            </tr>
+            <tr>
+                <td><kbd>Delete</kbd></td>
+                <td><strong>Delete Repo:</strong> Deletes the selected repository (Be careful!).</td>
+            </tr>
+            <tr>
+                <td><kbd>Enter</kbd></td>
+                <td>Open the selected Repository.</td>
+            </tr>
+        </table>
+
+        <h3>📂 Repository Tab Shortcuts (Inside a Project)</h3>
+        <p><em>Note: These only work when you are inside a repository tab.</em></p>
+        <table class="shortcut-table">
+            <tr>
+                <th>Shortcut</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td><kbd>Ctrl</kbd> + <kbd>N</kbd></td>
+                <td><strong>New File:</strong> Create a blank text file.</td>
+            </tr>
+            <tr>
+                <td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd></td>
+                <td><strong>New Folder:</strong> Create a new folder.</td>
+            </tr>
+            <tr>
+                <td><kbd>Ctrl</kbd> + <kbd>U</kbd></td>
+                <td><strong>Upload:</strong> Pick a file from your computer to upload here.</td>
+            </tr>
+            <tr>
+                <td><kbd>Ctrl</kbd> + <kbd>R</kbd></td>
+                <td><strong>Releases:</strong> Open the Releases/Downloads window.</td>
+            </tr>
+            <tr>
+                <td><kbd>Ctrl</kbd> + <kbd>I</kbd></td>
+                <td><strong>Issues:</strong> Open the Issues/Bugs window.</td>
+            </tr>
+            <tr>
+                <td><kbd>Ctrl</kbd> + <kbd>D</kbd></td>
+                <td><strong>Download:</strong> Download selected file or Download the whole Repo as ZIP.</td>
+            </tr>
+            <tr>
+                <td><kbd>Ctrl</kbd> + <kbd>Enter</kbd></td>
+                <td><strong>Edit:</strong> Open file in the App's Internal Editor.</td>
+            </tr>
+            <tr>
+                <td><kbd>Enter</kbd></td>
+                <td>Open file (System Default) or Enter Folder.</td>
+            </tr>
+            <tr>
+                <td><kbd>F2</kbd></td>
+                <td><strong>Rename:</strong> Rename the selected file or folder.</td>
+            </tr>
+            <tr>
+                <td><kbd>Delete</kbd></td>
+                <td><strong>Delete:</strong> Delete the selected file or folder.</td>
+            </tr>
+            <tr>
+                <td><kbd>Ctrl</kbd> + <kbd>C</kbd></td>
+                <td><strong>Copy:</strong> Mark file to copy.</td>
+            </tr>
+            <tr>
+                <td><kbd>Ctrl</kbd> + <kbd>X</kbd></td>
+                <td><strong>Cut:</strong> Mark file to move.</td>
+            </tr>
+            <tr>
+                <td><kbd>Ctrl</kbd> + <kbd>V</kbd></td>
+                <td><strong>Paste:</strong> Paste the copied/cut file into the current folder.</td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="faq">
+        <h2>❓ FAQ & Troubleshooting</h2>
+        
+        <h3>The app says "Repo Not Found" when I try to open a link.</h3>
+        <p>Make sure the link is correct. It should look like <code>owner/repo-name</code> or a full URL. Also, ensure your Token has permission to see private repos if the link is private.</p>
+
+        <h3>I see "Binary File Error".</h3>
+        <p>This happens if you try to "Edit" an image, a PDF, or an EXE file inside the app. The internal editor only works for text code. Use <kbd>Enter</kbd> or <kbd>Ctrl+D</kbd> to download and view these files instead.</p>
+
+        <h3>Does this update automatically?</h3>
+        <p>Yes! Every time you open the app, it checks a secure file (data.dat) connected to the server. If there is a new version, it will ask you if you want to update.</p>
+    </section>
+
+    <footer>
+        <p><strong>GitHub Manager v1.0.3</strong></p>
+        <p>Designed & Developed with ❤️ by <strong>Ahmed Hassan Abdel Nabi</strong></p>
+        <p>Making GitHub accessible for everyone.</p>
+    </footer>
+
+</div>
+
+</body>
+</html>
